@@ -76,8 +76,9 @@ app.get('/hi', async (req, res) => {
     res.send('hi')
 })
 
-app.post('/post/test', function (req, res) {
+app.post('/pos/test', function (req, res) {
     console.log(req.body.test)
+    res.send('hi')
 })
 
 app.post('/post/events', function (req, res) {
