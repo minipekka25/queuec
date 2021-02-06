@@ -76,6 +76,10 @@ app.get('/hi', async (req, res) => {
     res.send('hi')
 })
 
+app.post('/post/test', function (req, res) {
+    console.log(req.body.test)
+})
+
 app.post('/post/events', function (req, res) {
     console.log(req.body.events)
     let reg = req.body.events.Registration
