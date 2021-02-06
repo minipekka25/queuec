@@ -24,7 +24,7 @@ const new_gft_loss_benechng = new Queue('new_gft_loss_benechng', queueConfig);
 app.use(function (req, res, next) {
 
     // Website you wish to allow to connect
-    
+    res.setHeader('Access-Control-Allow-Origin', '*');
 
     // Request methods you wish to allow
     res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
