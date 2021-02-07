@@ -152,7 +152,7 @@ let Registration = (event) => {
     Stats.createMatrixstat(true, price[0], 1)
     Stats.createMatrixstat(false, price[0], 2)
     const createdJob = new_Reg_Upgrade.createJob({ type: "NewRegistration", event: event })
-    createdJob.timeout(3000).retries(5).save();
+    createdJob.timeout(15000).retries(5).save();
     createdJob.on('succeeded', (result) => {
         console.log(`Received result for job ${createdJob.id}`);
     });
@@ -164,7 +164,7 @@ let Upgrade = (event) => {
     Transaction.createTransaction(event)
     Stats.createMatrixstat(false, price[Number(event.returnValues.level) - 1], Number(event.returnValues.matrix))
     const createdJob = new_Reg_Upgrade.createJob({ type: "NewUpgrade", event: event })
-    createdJob.timeout(3000).retries(0).save();
+    createdJob.timeout(15000).retries(0).save();
     createdJob.on('succeeded', (result) => {
         console.log(`Received result for job ${createdJob.id}`);
     });
@@ -174,14 +174,14 @@ let NewUserPlace = (event) =>{
     console.log('new Place Event');
         Transaction.createTransaction(event)
         const createdJob = new_place_reinvest.createJob({ type: "NewPlace", event: event })
-        createdJob.timeout(3000).retries(0).save();
+        createdJob.timeout(15000).retries(0).save();
 }
 
 let Reinvest = (event) =>{
     console.log('new Reinvest Event');
     Transaction.createTransaction(event)
     const createdJob = new_place_reinvest.createJob({ type: "NewReinvest", event: event })
-    createdJob.timeout(3000).retries(0).save();
+    createdJob.timeout(15000).retries(0).save();
 }
 
 
@@ -189,19 +189,19 @@ let MissedEthReceive =(event) =>{
     console.log('new MissedEthReceive Event');
     Transaction.createTransaction(event)
     const createdJob = new_gft_loss_benechng.createJob({ type: "MissedEthReceive", event: event })
-    createdJob.timeout(3000).retries(0).save();
+    createdJob.timeout(15000).retries(0).save();
 }
 let SentExtraEthDividends = (event) =>{
     console.log('new SentExtraEthDividends Event');
     Transaction.createTransaction(event)
     const createdJob = new_gft_loss_benechng.createJob({ type: "SentExtraEthDividends", event: event })
-    createdJob.timeout(3000).retries(0).save();
+    createdJob.timeout(15000).retries(0).save();
 }
 let BeneficieryChanged = (event) =>{
     console.log('new BeneficieryChanged Event');
     Transaction.createTransaction(event)
     const createdJob = new_gft_loss_benechng.createJob({ type: "BeneficieryChanged", event: event })
-    createdJob.timeout(3000).retries(0).save();
+    createdJob.timeout(15000).retries(0).save();
 }
 
 
