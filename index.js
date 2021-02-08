@@ -53,6 +53,10 @@ app.get('/seed/:address/:txnhash', async (req, res) => {
     res.send('Seed Req Sent')
 })
 
+app.get('/revive', async (req, res) => {
+    res.json({response:'success'})
+})
+
 app.get('/dummy', async (req, res) => {
 
     let event = {
@@ -131,6 +135,7 @@ app.post('/post/events', function (req, res) {
     }
     if(ben){
         BeneficieryChanged(ben)
+        console.log(ben)
     }
 
 
